@@ -1,0 +1,41 @@
+﻿@using TaskMate.Web.Areas.Schedule.Controllers;
+@{
+
+}
+
+<link href="~/css/custom/schedule/TodoDetail.css" rel="stylesheet" />
+<div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+        <h1>今日代辦清單</h1>
+        <p>進度：<span class="progress">2/5 已完成</span></p>
+        <div class="filters">
+            <button class="filter-btn active" data-category="all">全部</button>
+            <button class="filter-btn" data-category="work">工作</button>
+            <button class="filter-btn" data-category="personal">個人</button>
+            <button class="filter-btn" data-category="study">學習</button>
+        </div>
+    </header>
+
+    <!-- Task List -->
+    <main class="task-list">
+        <div class="task" data-category="work">
+            <input type="checkbox" id="task1">
+            <label for="task1" class="task-title">完成 UI 設計</label>
+            <span class="task-time">15:00</span>
+        </div>
+        <div class="task" data-category="personal">
+            <input type="checkbox" id="task2">
+            <label for="task2" class="task-title">撰寫文檔</label>
+            <span class="task-time">18:00</span>
+        </div>
+        <div class="task completed" data-category="work">
+            <input type="checkbox" id="task3" checked>
+            <label for="task3" class="task-title">完成代碼優化</label>
+            <span class="task-time">已完成</span>
+        </div>
+    </main>
+
+    <!-- Add Task Button -->
+    <button class="add-task-btn">＋ 新增任務</button>
+</div>

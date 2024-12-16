@@ -1,0 +1,38 @@
+﻿
+@{
+
+}
+
+<link href="~/css/custom/weather/weatherforecast.css" rel="stylesheet" />
+<div class="weather-app">
+    <!-- 頂端選擇區 -->
+    <div class="controls">
+        <select id="timeRange" class="dropdown">
+            <option value="morning">早晨</option>
+            <option value="afternoon">下午</option>
+            <option value="evening">晚上</option>
+            <option value="night">深夜</option>
+        </select>
+        <input type="text" id="locationInput" class="input-field" placeholder="輸入地點...">
+        <button id="searchButton" class="btn">查詢</button>
+    </div>
+
+    <!-- 結果顯示區 -->
+    <div class="results">
+        <div class="result-item">
+            <div class="city-name">台北市</div>
+            <div class="temperature">25°C</div>
+            <div class="time">上午 8:00</div>
+        </div>
+        <div class="result-item">
+            <div class="city-name">台中市</div>
+            <div class="temperature">27°C</div>
+            <div class="time">下午 1:00</div>
+        </div>
+        <div class="result-item">
+            <div class="city-name">高雄市</div>
+            <div class="temperature">29°C</div>
+            <div class="time">下午 4:00</div>
+        </div>
+    </div>
+</div>

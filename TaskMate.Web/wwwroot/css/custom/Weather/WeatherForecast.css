@@ -1,0 +1,137 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #2c2c2c, #4f4f4f);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.weather-app {
+    width: 90%;
+    max-width: 800px;
+    background: #3a3a3a;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: nowrap; /* 預設保持一行排列 */
+    gap: 10px; /* 控制項間距 */
+}
+
+.dropdown, .input-field, .btn {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background: #4f4f4f;
+    color: #fff;
+}
+
+.dropdown, .btn {
+    flex: 1; /* 控制按鈕與下拉選單的比例 */
+    max-width: 120px; /* 固定最大寬度，避免過大 */
+}
+
+.input-field {
+    flex: 2; /* 擴展地點輸入框比例 */
+    max-width: none; /* 保持自然延展 */
+    outline: none;
+}
+
+.btn {
+    background: #f39c12;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+    .btn:hover {
+        background: #e67e22;
+    }
+
+.results {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #4f4f4f;
+    padding: 15px;
+    border-radius: 10px;
+    transition: transform 0.3s, background 0.3s;
+}
+
+    .result-item:hover {
+        transform: scale(1.05);
+        background: #575757;
+    }
+
+.city-name, .temperature, .time {
+    font-size: 18px;
+    text-align: center;
+}
+
+.temperature {
+    font-weight: bold;
+    color: #f39c12;
+}
+
+/* ========== RWD: 媒體查詢區 ========== */
+@media screen and (max-width: 768px) {
+    .controls {
+        flex-wrap: wrap; /* 小螢幕自動換行 */
+        justify-content: center; /* 居中對齊 */
+    }
+
+    .dropdown, .input-field, .btn {
+        flex: none; /* 禁止自適應拉伸 */
+        width: 100%; /* 控制每個控件占滿一行 */
+        max-width: none; /* 移除寬度限制 */
+    }
+
+    .results {
+        gap: 15px; /* 增加列表間距 */
+    }
+
+    .result-item {
+        flex-direction: column; /* 改為垂直排列 */
+        align-items: stretch; /* 讓內容撐滿寬度 */
+        text-align: left;
+    }
+
+    .city-name, .temperature, .time {
+        font-size: 16px; /* 字體略小 */
+        margin-bottom: 5px; /* 間距調整 */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .weather-app {
+        padding: 15px;
+    }
+
+    .city-name, .temperature, .time {
+        font-size: 14px;
+    }
+}

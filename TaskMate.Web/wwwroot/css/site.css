@@ -1,0 +1,127 @@
+/* 通用樣式 */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 主容器設置 */
+.container {
+    flex: 1; /* 撐滿剩餘空間 */
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header 標題及導覽列 */
+header {
+    background: #2c2c2c;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.navbar a:hover {
+    color: #e3e3e3;
+}
+
+.container {
+    height: 100%;
+}
+
+/* Footer */
+footer {
+    background: #2c2c2c;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+/* 平板版 (螢幕寬度小於 1024px) */
+@media (max-width: 1024px) {
+    .features {
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
+
+    .feature-item {
+        flex: 1 1 calc(50% - 1.5rem);
+        max-width: calc(50% - 1.5rem);
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+}
+
+/* 手機版 (螢幕寬度小於 768px) */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo {
+        margin-bottom: 0.5rem;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+    }
+
+    .hero {
+        padding: 2rem 1rem;
+    }
+
+        .hero h1 {
+            font-size: 1.8rem;
+        }
+
+        .hero p {
+            font-size: 0.9rem;
+        }
+
+    .features {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .feature-item {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    footer {
+        text-align: center;
+        font-size: 0.9rem;
+    }
+}

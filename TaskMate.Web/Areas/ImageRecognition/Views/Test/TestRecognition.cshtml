@@ -1,0 +1,41 @@
+﻿@using TaskMate.Web.Areas.ImageRecognition.Controllers;
+@{
+}
+
+<video id="video" autoplay playsinline style="width: 100%;"></video>
+<canvas id="canvas" style="display: none;"></canvas>
+<script>
+  const video = document.getElementById('video');
+
+  // 啟用手機相機
+  navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
+    .then((stream) => {
+      video.srcObject = stream;
+    })
+    .catch((err) => {
+      console.error("Error accessing camera: ", err);
+    });
+
+  // 每隔一定時間擷取影像
+  setInterval(() => {
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+    // 將擷取的影像轉為 Base64
+    const imageBase64 = canvas.toDataURL('image/png');
+    
+    // 傳送影像給後端
+    fetch('@Url.Action(nameof(TestController.Recognize), "Test", new { area = "ImageRecognition" })', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ image: imageBase64 })
+    })
+    .then(response => response.json())
+    .then(data => {
+      alert("辨識結果: ", data.result);
+    });
+  }, 10000); // 每秒擷取一次
+</script>
